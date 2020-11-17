@@ -1,0 +1,2 @@
+/usr/bin/ar qc libSTATIC.a CMakeFiles/STATIC.dir/src/common/shapes.cc.o CMakeFiles/STATIC.dir/src/sweep/advancing_front.cc.o CMakeFiles/STATIC.dir/src/sweep/cdt.cc.o CMakeFiles/STATIC.dir/src/sweep/sweep.cc.o CMakeFiles/STATIC.dir/src/sweep/sweep_context.cc.o
+/usr/bin/ranlib libSTATIC.a
