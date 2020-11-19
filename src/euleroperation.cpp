@@ -15,9 +15,9 @@ pSolid EulerOperation::mvfs(Point p,Vertex* &v)
     pPoint point=new Point(p);
     v=new Vertex(point);
 
-    solid->s_face=face;
+    solid->AddFace(face);
     face->f_solid=solid;
-    face->f_loop=loop;
+    face->AddLoop(loop);
     loop->l_face=face;
 
     return solid;
@@ -55,7 +55,16 @@ pHalfEdge EulerOperation::mev(Point p,const pVertex v,const pLoop loop)
     }
     else{
         pHalfEdge he=loop->l_halfedge;
-        while(he->end_v!=v) he=he->next_he;
+//        std::cout<<loop->GetEdgeNum()<<std::endl;
+        int cnt=0;
+        while(he->end_v!=v){
+            he=he->next_he;
+            cnt++;
+            if(he==loop->l_halfedge){
+                std::cout<<cnt<<" cant find"<<std::endl;
+                exit(-1);
+            }
+        }
         he2->next_he=he->next_he;
         he->next_he->prev_he=he2;
         he->next_he=he1;
@@ -86,8 +95,7 @@ pLoop EulerOperation::mef(const pVertex v1,const pVertex v2,pLoop main_loop)
     he1->end_v=he2->start_v=v2;
 
     pLoop n_loop=new Loop();
-    n_loop->l_halfedge=he2;
-    main_loop->l_halfedge=he1;
+
 
     pHalfEdge m_he1,m_he2,m_he;
     m_he=main_loop->l_halfedge;
@@ -106,6 +114,9 @@ pLoop EulerOperation::mef(const pVertex v1,const pVertex v2,pLoop main_loop)
     m_he2->prev_he->next_he=he2;
     m_he2->prev_he=he1;
 
+    n_loop->l_halfedge=he2;
+    main_loop->l_halfedge=he1;
+
     pHalfEdge he=n_loop->l_halfedge;
     while(he->next_he!=n_loop->l_halfedge){
         he->he_loop=n_loop;
@@ -119,11 +130,12 @@ pLoop EulerOperation::mef(const pVertex v1,const pVertex v2,pLoop main_loop)
 
     pSolid solid=main_loop->l_face->f_solid;
     pFace n_face=new Face();
-    n_face->f_loop=n_loop;
+    n_face->AddLoop(n_loop);
     n_loop->l_face=n_face;
     n_face->f_solid=solid;
     solid->AddFace(n_face);
     solid->AddEdge(edge);
+    return n_loop;
 }
 /*
  * delete an edge and make an inner-loop
@@ -168,6 +180,7 @@ void EulerOperation::kfmrh(pFace del_face,pFace face)
         std::cout<<"kfmrh error: delete face has more than one loop!"<<std::endl;
         return;
     }
+    del_face->f_loop->is_inner_loop=true;
     face->AddLoop(del_face->f_loop);
 
     pSolid solid=del_face->f_solid;
@@ -177,31 +190,50 @@ void EulerOperation::kfmrh(pFace del_face,pFace face)
  * moving a face according to the move_vec which result a solid
  * todo:考虑底面带环进行扫成后的顶面
  */
+extern void PrintSolid(const pSolid solid);
 pSolid EulerOperation::sweep(pFace face,glm::vec3 move_vec)
 {
     pSolid solid=face->f_solid;
     pLoop lp=face->f_loop;
+    std::cout<<"loop num is: "<<face->GetLoopNum()<<std::endl;
     do {
         auto he=lp->l_halfedge;
         auto first_v=he->start_v;
+        std::cout<<"first vertex"<<*(first_v->point)<<std::endl;
         Point n_pos=first_v->point->GetPoint()+move_vec;
+        std::cout<<"fist vertex pos: "<<n_pos<<std::endl;
         pHalfEdge first_up_he=mev(n_pos,first_v,lp);
-        pVertex  last_up_v=he->end_v;
-
+        pVertex  last_up_v=first_up_he->end_v;
+        std::cout<<n_pos<<std::endl;
         he=he->next_he;
         pVertex v=he->start_v;
+        std::cout<<"lp's edge num is: "<<lp->GetEdgeNum()<<std::endl;
         while(v!=first_v){
             Point n_pos=v->point->GetPoint()+move_vec;
+            std::cout<<"nest n_pos: "<<n_pos<<std::endl;
+//            std::cout<<n_pos<<std::endl;
+            std::cout<<"lp's edge num is in while: "<<lp->GetEdgeNum()<<std::endl;
             pHalfEdge up_he=mev(n_pos,v,lp);
+            std::cout<<"lp's edge num is in while after mev: "<<lp->GetEdgeNum()<<std::endl;
             pVertex up_v=up_he->end_v;
-            mef(up_v,last_up_v,lp);
+            mef(last_up_v,up_v,lp);
+            std::cout<<"lp's edge num is in while after mef: "<<lp->GetEdgeNum()<<std::endl;
             last_up_v=up_v;
             he=he->next_he;
             v=he->start_v;
         }
-        mef(first_up_he->end_v,last_up_v,lp);
+        mef(last_up_v,first_up_he->end_v,lp);
+        std::cout<<"lp's edge num is in  after mef: "<<lp->GetEdgeNum()<<std::endl;
+        std::cout<<"face num is: "<<solid->GetFaceNum()<<std::endl;
+        std::cout<<"edge num is: "<<solid->GetEdgeNum()<<std::endl;
         lp=lp->next_l;
     }while(lp!=face->f_loop);
 
     return solid;
+}
+void swap(pLoop& p1,pLoop& p2)
+{
+    pLoop p=p1;
+    p1=p2;
+    p2=p;
 }

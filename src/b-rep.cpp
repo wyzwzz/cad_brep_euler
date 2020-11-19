@@ -35,7 +35,7 @@ void Solid::AddEdge(pEdge edge)
         std::cout<<"ERROR! Add edge is nullptr!"<<std::endl;
         return;
     }
-
+    edge->id=GetEdgeNum()+1;
     if(!s_edge){
         s_edge=edge;
         //双向循环列表 只有一个元素时 prev和next都是自己
@@ -50,6 +50,7 @@ void Solid::AddEdge(pEdge edge)
         he2->prev_e=edge;
         edge->next_e=he2;
     }
+
 }
 
 void Solid::DeleteEdge(pEdge edge)
@@ -91,6 +92,7 @@ void Solid::AddFace(pFace face)
         std::cout<<"ERROR! Add face is nullptr!"<<std::endl;
         return;
     }
+    face->id=GetFaceNum()+1;
     if(!s_face){
         s_face=face;
         s_face->next_f=s_face->prev_f=face;
@@ -158,6 +160,7 @@ void Face::AddLoop(pLoop loop)
         std::cout<<"ERROR! Add loop is nullptr!"<<std::endl;
         return;
     }
+    loop->l_face=this;
     if(!f_loop){
         f_loop=loop;
         f_loop->next_l=f_loop->prev_l=loop;
@@ -185,6 +188,21 @@ pLoop Face::GetOuterLoop()
             return lp;
         lp=lp->next_l;
     }while(lp!=f_loop);
+}
+
+pLoop Solid::FindLoopByStartVAndEndV(pVertex start_v,pVertex end_v)
+{
+    auto edge=s_edge;
+    do{
+        auto he=edge->he1;
+        if(he->start_v==start_v && he->end_v==end_v)
+            return he->he_loop;
+        he=edge->he2;
+        if(he->start_v==start_v && he->end_v==end_v)
+            return he->he_loop;
+
+        edge=edge->next_e;
+    }while(edge!=s_edge);
 }
 
 uint32_t Loop::GetEdgeNum() const
@@ -231,5 +249,14 @@ bool Loop::FindHalfEdge(pHalfEdge he)
             return false;
     }
     return true;
+}
+
+void Loop::PrintHalfEdgeInfo()
+{
+    auto he=l_halfedge;
+    do {
+        std::cout<<*(he->start_v->point)<<" "<<*(he->end_v->point)<<std::endl;
+        he=he->next_he;
+    }while (he!=l_halfedge);
 }
 

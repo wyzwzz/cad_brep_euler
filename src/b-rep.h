@@ -38,6 +38,7 @@ public:
     void DeleteFace(pFace face);
     void AddEdge(pEdge edge);
     void DeleteEdge(pEdge edge);
+    pLoop FindLoopByStartVAndEndV(pVertex start_v,pVertex end_v);
 };
 
 class Face{
@@ -46,11 +47,13 @@ public:
     pSolid f_solid;
     pFace prev_f,next_f;
     pLoop f_loop;
+    uint id;
 public:
     uint32_t GetLoopNum() const;
     void AddLoop(pLoop loop);
     void DeleteLoop(pLoop loop);
     pLoop GetOuterLoop();
+
 };
 
 class Loop{
@@ -69,13 +72,15 @@ public:
     bool FindHalfEdge(pHalfEdge he);
     pHalfEdge FindHalfEdgeByStartV(pVertex start_v);
     pHalfEdge FindHalfEdgeByEndV(pVertex end_v);
+
     void UpdateHEsLoop();
+    void PrintHalfEdgeInfo();
 };
 
 class Edge{
 public:
     Edge():prev_e(nullptr),next_e(nullptr),he1(nullptr),he2(nullptr){}
-
+    uint id;
     pEdge prev_e,next_e;
     pHalfEdge he1,he2;
 };
@@ -108,6 +113,7 @@ class Point{
     glm::vec3 color;
 public:
      Point():pos(0),color(0){}
+     Point(float x,float y,float z):pos(glm::vec3(x,y,z)),color(0){}
      Point(glm::vec3 pos,glm::vec3 color=glm::vec3(0)):pos(pos),color(color){}
      Point(const Point& p):pos(p.GetPoint()),color(p.GetColor()){}
      void SetPoint(glm::vec3 pos){

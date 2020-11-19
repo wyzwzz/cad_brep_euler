@@ -64,6 +64,7 @@ inline void Camera::updateCameraVectors()
     Front=normalize(front);
     Right=normalize(cross(Front,WorldUp));
     Up=normalize(cross(Right,Front));
+
 }
 
 inline void Camera::processMouseScroll(float yoffset)

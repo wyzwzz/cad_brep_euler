@@ -3,7 +3,8 @@
 //
 #include<glad/glad.h>
 #include "controller.h"
-Camera Controller::camera=Camera(glm::vec3(0.0f,0.0f,1.0f));
+#include<iostream>
+Camera Controller::camera=Camera(glm::vec3(0.0f,8.0f,12.0f));
 bool Controller::is_first_mouse=true;
 float Controller::last_x;
 float Controller::last_y;
@@ -19,10 +20,10 @@ void Controller::keyboard_callback(GLFWwindow *window, int key, int scancode, in
         glfwSetWindowShouldClose(window,GL_TRUE);
     }
     else if(key>=0 && key<1024){
+        std::cout<<"key click: "<<key<<std::endl;
         if(action==GLFW_PRESS)
-            keys[key]=true;
-        else if(action==GLFW_RELEASE)
-            keys[key]=false;
+            keys[key]=!keys[key];
+
     }
 }
 
@@ -50,4 +51,13 @@ void Controller::mouse_button_callback(GLFWwindow *window, int button, int actio
 void Controller::scroll_callback(GLFWwindow *window, double xoffset, double yoffset)
 {
     camera.processMouseScroll(yoffset);
+}
+
+bool Controller::IsWireFrameMode()
+{
+
+    if(keys[76]){// l
+        return true;
+    }
+    return false;
 }

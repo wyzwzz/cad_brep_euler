@@ -25,7 +25,7 @@ public:
     static float last_y;
     static bool is_first_mouse;
 public:
-    bool IsWireFrameMode() const;
+    static bool IsWireFrameMode();
 };
 
 

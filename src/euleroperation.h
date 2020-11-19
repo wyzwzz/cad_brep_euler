@@ -18,6 +18,6 @@ public:
 private:
 
 };
-
+void swap(pLoop& p1,pLoop& p2);
 
 #endif //EULEROPERATION_EULEROPERATION_H
