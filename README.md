@@ -5,6 +5,8 @@
 
 **王银沼 22021071**
 
+**https://github.com/wyzwzz/cad_brep_euler**
+
 使用cmake进行环境配置
 
 有在linux环境下编译好的放在cmake-build-debug和cmake-build-release目录下
