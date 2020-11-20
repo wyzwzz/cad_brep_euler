@@ -10,6 +10,7 @@
 #include "creation.h"
 #include<memory>
 #include <vector>
+extern uint32 solids_num;
 class Renderer {
 public:
 
@@ -23,7 +24,13 @@ public:
         shader.reset(new Shader("../src/shader/vert_shader.glsl",
                                 "../src/shader/frag_shader.glsl"));
     }
+    Renderer(std::vector<pSolid> solids):solids(solids){
+        InitGL();
+        shader.reset(new Shader("../src/shader/vert_shader.glsl",
+                                "../src/shader/frag_shader.glsl"));
 
+        solids_num=solids.size();
+    }
     void SetSolid(const pSolid solid){this->solid=solid;}
     void Render();
 private:
@@ -41,6 +48,7 @@ private:
     };
     std::vector<Triangle> triangles;
     pSolid solid;
+    std::vector<pSolid> solids;
     GLFWwindow *window;
     std::unique_ptr<Shader> shader;
     const uint32 SCREEN_W=1200;

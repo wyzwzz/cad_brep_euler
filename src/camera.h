@@ -1,10 +1,8 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-
 #include<glm/glm.hpp>
 #include<glm/gtc/matrix_transform.hpp>
-
 #include<vector>
 
 using namespace glm;
@@ -12,7 +10,9 @@ enum Camera_Movement{
     FORWARD,
     BACKWARD,
     LEFT,
-    RIGHT
+    RIGHT,
+    UP,
+    DOWN
 };
 enum Camera_Type{
     PERSPECTIVE,
@@ -21,7 +21,7 @@ enum Camera_Type{
 const float PITCH=0.0f;
 const float YAW=-90.0f;
 const float SPEED=2.5f;
-const float SENSITIVITY=0.1f;
+const float SENSITIVITY=0.03f;
 const float ZOOM=45.0f;
 
 class Camera{
@@ -56,7 +56,6 @@ public:
 
 inline void Camera::updateCameraVectors()
 {
-	//std::cout << "updatevector\n";
     vec3 front;
     front.x=cos(radians(Yaw))*cos(radians(Pitch));
     front.y=sin(radians(Pitch));
@@ -83,9 +82,7 @@ inline void Camera::processMouseScroll(float yoffset)
                 Zoom=0.1f;
             if(Zoom>45.0f)
                 Zoom=45.0f;
-
     }
-
 }
 
 inline void Camera::processMouseMovement(float xoffset,float yoffset,GLboolean constrainPitch)
@@ -116,6 +113,10 @@ inline void Camera::processKeyboard(Camera_Movement direction,float deltaTime)
         Position-=Right*ds;
     if(direction==RIGHT)
         Position+=Right*ds;
+    if(direction==UP)
+        Position+=Up*ds;
+    if(direction==DOWN)
+        Position-=Up*ds;
 }
 inline mat4 Camera::getViewMatrix()
 {

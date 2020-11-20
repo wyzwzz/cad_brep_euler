@@ -50,7 +50,6 @@ void Solid::AddEdge(pEdge edge)
         he2->prev_e=edge;
         edge->next_e=he2;
     }
-
 }
 
 void Solid::DeleteEdge(pEdge edge)
@@ -177,7 +176,7 @@ void Face::AddLoop(pLoop loop)
 
 void Face::DeleteLoop(pLoop loop)
 {
-
+    std::cout<<"not imply"<<std::endl;
 }
 
 pLoop Face::GetOuterLoop()
@@ -200,7 +199,6 @@ pLoop Solid::FindLoopByStartVAndEndV(pVertex start_v,pVertex end_v)
         he=edge->he2;
         if(he->start_v==start_v && he->end_v==end_v)
             return he->he_loop;
-
         edge=edge->next_e;
     }while(edge!=s_edge);
 }
@@ -219,7 +217,7 @@ uint32_t Loop::GetEdgeNum() const
 }
 void Loop::AddEdge(pVertex v0,pVertex v)
 {
-
+    std::cout<<"not imply"<<std::endl;
 }
 
 void Loop::AddHalfEdge(pHalfEdge last_he,pHalfEdge n_he)
@@ -235,7 +233,7 @@ void Loop::AddHalfEdge(pHalfEdge last_he,pHalfEdge n_he)
 
 void Loop::DeleteHalfEdge(pHalfEdge he)
 {
-
+    std::cout<<"not imply"<<std::endl;
 }
 
 bool Loop::FindHalfEdge(pHalfEdge he)

@@ -273,15 +273,7 @@ pSolid Creation::CreateSolidZeroUseSweep()
     return solid;
 }
 
-pSolid Creation::CreateSolidCubeWithFourHoleUseSweep()
-{
-    return nullptr;
-}
 
-pSolid Creation::CreateSolidWithTwoCrossHole()
-{
-    return nullptr;
-}
 
 pSolid Creation::CreateCompactSolid()
 {
@@ -346,7 +338,7 @@ pSolid Creation::CreateCompactSolid()
     EulerOperation::sweep(down_loop->l_face,glm::vec3(0.0,-6.0,0.0));
 
     pLoop back_loop=solid->FindLoopByStartVAndEndV(v7,v6);
-    back_loop->PrintHalfEdgeInfo();
+//    back_loop->PrintHalfEdgeInfo();
     pHalfEdge bridge1=EulerOperation::mev(Point(-9.0,2.0,-10.0),v6,back_loop);
     pVertex v17=bridge1->end_v;
 
@@ -383,9 +375,6 @@ pSolid Creation::CreateCompactSolid()
     pLoop through_front_loop1=solid->FindLoopByStartVAndEndV(v5,v4);
     EulerOperation::kfmrh(through_inner_loop->l_face,through_front_loop1->l_face);
 
-
-//    pLoop back_loop=solid->FindLoopByStartVAndEndV(v7,v6);
-//    back_loop->PrintHalfEdgeInfo();
     pHalfEdge bridge2=EulerOperation::mev(Point(5.0,2.0,-10.0),v6,back_loop);
     pVertex v25=bridge2->end_v;
 
@@ -457,7 +446,6 @@ pSolid Creation::CreateCompactSolid()
     pLoop through_inner_bottom=EulerOperation::mef(v40,v37,through_right_inner_loop);
     pLoop through_right_loop=solid->FindLoopByStartVAndEndV(v12,v11);
     EulerOperation::kfmrh(through_right_inner_loop->l_face,through_right_loop->l_face);
-
 
     return solid;
 }

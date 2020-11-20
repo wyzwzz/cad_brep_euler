@@ -102,9 +102,22 @@ CMakeFiles/EulerOperation.dir/src/controller.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/EulerOperation.dir/src/controller.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wyz/learn/EulerOperation/src/controller.cpp -o CMakeFiles/EulerOperation.dir/src/controller.cpp.s
 
+CMakeFiles/EulerOperation.dir/src/creation.cpp.o: CMakeFiles/EulerOperation.dir/flags.make
+CMakeFiles/EulerOperation.dir/src/creation.cpp.o: ../src/creation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wyz/learn/EulerOperation/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/EulerOperation.dir/src/creation.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EulerOperation.dir/src/creation.cpp.o -c /home/wyz/learn/EulerOperation/src/creation.cpp
+
+CMakeFiles/EulerOperation.dir/src/creation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/EulerOperation.dir/src/creation.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wyz/learn/EulerOperation/src/creation.cpp > CMakeFiles/EulerOperation.dir/src/creation.cpp.i
+
+CMakeFiles/EulerOperation.dir/src/creation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/EulerOperation.dir/src/creation.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wyz/learn/EulerOperation/src/creation.cpp -o CMakeFiles/EulerOperation.dir/src/creation.cpp.s
+
 CMakeFiles/EulerOperation.dir/src/euleroperation.cpp.o: CMakeFiles/EulerOperation.dir/flags.make
 CMakeFiles/EulerOperation.dir/src/euleroperation.cpp.o: ../src/euleroperation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wyz/learn/EulerOperation/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/EulerOperation.dir/src/euleroperation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wyz/learn/EulerOperation/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/EulerOperation.dir/src/euleroperation.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EulerOperation.dir/src/euleroperation.cpp.o -c /home/wyz/learn/EulerOperation/src/euleroperation.cpp
 
 CMakeFiles/EulerOperation.dir/src/euleroperation.cpp.i: cmake_force
@@ -117,7 +130,7 @@ CMakeFiles/EulerOperation.dir/src/euleroperation.cpp.s: cmake_force
 
 CMakeFiles/EulerOperation.dir/src/glad.c.o: CMakeFiles/EulerOperation.dir/flags.make
 CMakeFiles/EulerOperation.dir/src/glad.c.o: ../src/glad.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wyz/learn/EulerOperation/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/EulerOperation.dir/src/glad.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wyz/learn/EulerOperation/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/EulerOperation.dir/src/glad.c.o"
 	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/EulerOperation.dir/src/glad.c.o -c /home/wyz/learn/EulerOperation/src/glad.c
 
 CMakeFiles/EulerOperation.dir/src/glad.c.i: cmake_force
@@ -130,7 +143,7 @@ CMakeFiles/EulerOperation.dir/src/glad.c.s: cmake_force
 
 CMakeFiles/EulerOperation.dir/src/main.cpp.o: CMakeFiles/EulerOperation.dir/flags.make
 CMakeFiles/EulerOperation.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wyz/learn/EulerOperation/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/EulerOperation.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wyz/learn/EulerOperation/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/EulerOperation.dir/src/main.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EulerOperation.dir/src/main.cpp.o -c /home/wyz/learn/EulerOperation/src/main.cpp
 
 CMakeFiles/EulerOperation.dir/src/main.cpp.i: cmake_force
@@ -143,7 +156,7 @@ CMakeFiles/EulerOperation.dir/src/main.cpp.s: cmake_force
 
 CMakeFiles/EulerOperation.dir/src/renderer.cpp.o: CMakeFiles/EulerOperation.dir/flags.make
 CMakeFiles/EulerOperation.dir/src/renderer.cpp.o: ../src/renderer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wyz/learn/EulerOperation/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/EulerOperation.dir/src/renderer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wyz/learn/EulerOperation/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/EulerOperation.dir/src/renderer.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EulerOperation.dir/src/renderer.cpp.o -c /home/wyz/learn/EulerOperation/src/renderer.cpp
 
 CMakeFiles/EulerOperation.dir/src/renderer.cpp.i: cmake_force
@@ -158,6 +171,7 @@ CMakeFiles/EulerOperation.dir/src/renderer.cpp.s: cmake_force
 EulerOperation_OBJECTS = \
 "CMakeFiles/EulerOperation.dir/src/b-rep.cpp.o" \
 "CMakeFiles/EulerOperation.dir/src/controller.cpp.o" \
+"CMakeFiles/EulerOperation.dir/src/creation.cpp.o" \
 "CMakeFiles/EulerOperation.dir/src/euleroperation.cpp.o" \
 "CMakeFiles/EulerOperation.dir/src/glad.c.o" \
 "CMakeFiles/EulerOperation.dir/src/main.cpp.o" \
@@ -168,6 +182,7 @@ EulerOperation_EXTERNAL_OBJECTS =
 
 EulerOperation: CMakeFiles/EulerOperation.dir/src/b-rep.cpp.o
 EulerOperation: CMakeFiles/EulerOperation.dir/src/controller.cpp.o
+EulerOperation: CMakeFiles/EulerOperation.dir/src/creation.cpp.o
 EulerOperation: CMakeFiles/EulerOperation.dir/src/euleroperation.cpp.o
 EulerOperation: CMakeFiles/EulerOperation.dir/src/glad.c.o
 EulerOperation: CMakeFiles/EulerOperation.dir/src/main.cpp.o
@@ -175,7 +190,7 @@ EulerOperation: CMakeFiles/EulerOperation.dir/src/renderer.cpp.o
 EulerOperation: CMakeFiles/EulerOperation.dir/build.make
 EulerOperation: extern/poly2tri/libpoly2tri.a
 EulerOperation: CMakeFiles/EulerOperation.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wyz/learn/EulerOperation/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable EulerOperation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wyz/learn/EulerOperation/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable EulerOperation"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/EulerOperation.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

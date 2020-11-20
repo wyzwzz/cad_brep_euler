@@ -7,10 +7,13 @@
 #include<GLFW/glfw3.h>
 #include "camera.h"
 /*
- * 按下鼠标左键移动，物体旋转
- * todo 按下鼠标右键，显示菜单？
- * L键控制线框还是实体绘制
- * 滚轮控制相机缩放大小
+ * L键用于切换线框模式和shader模式
+ * -> 用于切换当前绘制的实体
+ * Q和E控制相机上下
+ * W和S控制相机前后
+ * A和D控制相机左右
+ * 鼠标控制相机朝向
+ * 按Esc退出程序
  */
 class Controller {
 public:
@@ -19,11 +22,16 @@ public:
     static void mouse_callback(GLFWwindow* window,double xpos,double ypos);
     static void mouse_button_callback(GLFWwindow* window,int button,int action,int mods);
     static void scroll_callback(GLFWwindow *window, double xoffset, double yoffset);
+    static void process_input(GLFWwindow* window);
     static Camera camera;
     static bool keys[1024];
     static float last_x;
     static float last_y;
     static bool is_first_mouse;
+    static float last_frame;
+    static float delta_time;
+    static uint32 idx;
+    static bool update;
 public:
     static bool IsWireFrameMode();
 };

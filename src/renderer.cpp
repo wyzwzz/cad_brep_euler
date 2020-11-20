@@ -63,7 +63,7 @@ void Renderer::InitGL()
     glfwSetCursorPosCallback(window,Controller::mouse_callback);
     glfwSetScrollCallback(window,Controller::scroll_callback);
     glfwSetKeyCallback(window,Controller::keyboard_callback);
-    glfwSetInputMode(window,GLFW_CURSOR,GLFW_CURSOR_NORMAL);
+    glfwSetInputMode(window,GLFW_CURSOR,GLFW_CURSOR_DISABLED);
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
         std::cout << "Failed to initialize GLAD" << std::endl;
         glfwTerminate();
@@ -74,10 +74,24 @@ void Renderer::InitGL()
 
 void Renderer::Render()
 {
+    solid=solids[Controller::idx];
     GenerateTris();
     CreateWireVertexBuffer();
     CreateSurfaceVertexBuffer();
     while(!glfwWindowShouldClose(window)){
+        if(Controller::update){
+            solid=solids[Controller::idx];
+            GenerateTris();
+            CreateWireVertexBuffer();
+            CreateSurfaceVertexBuffer();
+            Controller::update=false;
+        }
+        float current_frame=glfwGetTime();
+        Controller::delta_time=current_frame-Controller::last_frame;
+        Controller::last_frame=current_frame;
+
+        Controller::process_input(window);
+
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 
@@ -132,6 +146,8 @@ void Renderer::RenderWireFrame()
 }
 void Renderer::CreateWireVertexBuffer()
 {
+    glDeleteVertexArrays(1,&l_vao);
+    glDeleteBuffers(1,&l_vbo);
     glGenVertexArrays(1,&l_vao);
     glGenBuffers(1,&l_vbo);
 
@@ -150,12 +166,10 @@ void Renderer::RenderSurface()
 }
 void Renderer::CreateSurfaceVertexBuffer()
 {
-    std::cout<<"triangles num is: "<<triangles.size()<<std::endl;
-//    for(int i=0;i<triangles.size();i++){
-//        std::cout<<triangles[i].v[0].x<<" "
-//                <<triangles[i].v[0].y<<" "
-//                <<triangles[i].v[0].z<<" "<<std::endl;
-//    }
+//    std::cout<<"triangles num is: "<<triangles.size()<<std::endl;
+    glDeleteVertexArrays(1,&s_vao);
+    glDeleteBuffers(1,&s_vbo);
+
     glGenVertexArrays(1,&s_vao);
     glGenBuffers(1,&s_vbo);
 
@@ -193,8 +207,8 @@ void Renderer::Polygon2Tri(const pFace face)
             continue;
         }
 
-        std::cout<<"processing inner loop"<<std::endl;
-        inner_lp->PrintHalfEdgeInfo();
+//        std::cout<<"processing inner loop"<<std::endl;
+//        inner_lp->PrintHalfEdgeInfo();
         pHalfEdge he=inner_lp->l_halfedge;
         do {
             glm::vec2 p=plane.Space3DToPlane2D(he->start_v->point->GetPoint());
@@ -228,7 +242,7 @@ void Renderer::GenerateTris()
     triangles.clear();
     auto face=solid->s_face;
     do{
-        std::cout<<"face id is: "<<face->id<<std::endl;
+//        std::cout<<"face id is: "<<face->id<<std::endl;
         Polygon2Tri(face);
         face=face->next_f;
     }while(face!=solid->s_face);

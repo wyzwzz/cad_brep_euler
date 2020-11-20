@@ -22,7 +22,6 @@ using pHalfEdge=HalfEdge*;
 using pVertex=Vertex*;
 using pPoint=Point*;
 
-
 //双向循环链表，当只有一个元素时，next和prev都指向自身
 class Solid{
 public:
@@ -70,10 +69,6 @@ public:
     void AddHalfEdge(pHalfEdge last_he,pHalfEdge n_he);
     void DeleteHalfEdge(pHalfEdge he);
     bool FindHalfEdge(pHalfEdge he);
-    pHalfEdge FindHalfEdgeByStartV(pVertex start_v);
-    pHalfEdge FindHalfEdgeByEndV(pVertex end_v);
-
-    void UpdateHEsLoop();
     void PrintHalfEdgeInfo();
 };
 
@@ -96,7 +91,6 @@ public:
     pHalfEdge adj_he;
     pEdge he_e;
     pVertex start_v,end_v;
-
 };
 
 class Vertex{

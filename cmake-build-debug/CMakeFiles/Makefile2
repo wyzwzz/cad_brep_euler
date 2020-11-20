@@ -113,12 +113,12 @@ extern/poly2tri/clean: extern/poly2tri/CMakeFiles/poly2tri.dir/clean
 CMakeFiles/EulerOperation.dir/all: extern/poly2tri/CMakeFiles/poly2tri.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/EulerOperation.dir/build.make CMakeFiles/EulerOperation.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/EulerOperation.dir/build.make CMakeFiles/EulerOperation.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wyz/learn/EulerOperation/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target EulerOperation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wyz/learn/EulerOperation/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target EulerOperation"
 .PHONY : CMakeFiles/EulerOperation.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/EulerOperation.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wyz/learn/EulerOperation/cmake-build-debug/CMakeFiles 13
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wyz/learn/EulerOperation/cmake-build-debug/CMakeFiles 14
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/EulerOperation.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wyz/learn/EulerOperation/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/EulerOperation.dir/rule
@@ -140,7 +140,7 @@ CMakeFiles/EulerOperation.dir/clean:
 extern/poly2tri/CMakeFiles/poly2tri.dir/all:
 	$(MAKE) $(MAKESILENT) -f extern/poly2tri/CMakeFiles/poly2tri.dir/build.make extern/poly2tri/CMakeFiles/poly2tri.dir/depend
 	$(MAKE) $(MAKESILENT) -f extern/poly2tri/CMakeFiles/poly2tri.dir/build.make extern/poly2tri/CMakeFiles/poly2tri.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wyz/learn/EulerOperation/cmake-build-debug/CMakeFiles --progress-num=8,9,10,11,12,13 "Built target poly2tri"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wyz/learn/EulerOperation/cmake-build-debug/CMakeFiles --progress-num=9,10,11,12,13,14 "Built target poly2tri"
 .PHONY : extern/poly2tri/CMakeFiles/poly2tri.dir/all
 
 # Build rule for subdir invocation for target.

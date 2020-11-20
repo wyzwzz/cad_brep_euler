@@ -15,8 +15,6 @@ public:
     static pLoop kemr(const pVertex v1,const pVertex v2,pLoop loop);
     static void kfmrh(pFace del_face,pFace face);
     static pSolid sweep(pFace face,glm::vec3 move_vec);
-private:
-
 };
 void swap(pLoop& p1,pLoop& p2);
 

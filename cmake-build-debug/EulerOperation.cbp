@@ -176,6 +176,12 @@
 		<Unit filename="/home/wyz/learn/EulerOperation/src/controller.h">
 			<Option target="EulerOperation"/>
 		</Unit>
+		<Unit filename="/home/wyz/learn/EulerOperation/src/creation.cpp">
+			<Option target="EulerOperation"/>
+		</Unit>
+		<Unit filename="/home/wyz/learn/EulerOperation/src/creation.h">
+			<Option target="EulerOperation"/>
+		</Unit>
 		<Unit filename="/home/wyz/learn/EulerOperation/src/euleroperation.cpp">
 			<Option target="EulerOperation"/>
 		</Unit>

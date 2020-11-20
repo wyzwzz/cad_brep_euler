@@ -195,37 +195,37 @@ pSolid EulerOperation::sweep(pFace face,glm::vec3 move_vec)
 {
     pSolid solid=face->f_solid;
     pLoop lp=face->f_loop;
-    std::cout<<"loop num is: "<<face->GetLoopNum()<<std::endl;
+//    std::cout<<"loop num is: "<<face->GetLoopNum()<<std::endl;
     do {
         auto he=lp->l_halfedge;
         auto first_v=he->start_v;
-        std::cout<<"first vertex"<<*(first_v->point)<<std::endl;
+//        std::cout<<"first vertex"<<*(first_v->point)<<std::endl;
         Point n_pos=first_v->point->GetPoint()+move_vec;
-        std::cout<<"fist vertex pos: "<<n_pos<<std::endl;
+//        std::cout<<"fist vertex pos: "<<n_pos<<std::endl;
         pHalfEdge first_up_he=mev(n_pos,first_v,lp);
         pVertex  last_up_v=first_up_he->end_v;
-        std::cout<<n_pos<<std::endl;
+//        std::cout<<n_pos<<std::endl;
         he=he->next_he;
         pVertex v=he->start_v;
-        std::cout<<"lp's edge num is: "<<lp->GetEdgeNum()<<std::endl;
+//        std::cout<<"lp's edge num is: "<<lp->GetEdgeNum()<<std::endl;
         while(v!=first_v){
             Point n_pos=v->point->GetPoint()+move_vec;
-            std::cout<<"nest n_pos: "<<n_pos<<std::endl;
+//            std::cout<<"nest n_pos: "<<n_pos<<std::endl;
 //            std::cout<<n_pos<<std::endl;
-            std::cout<<"lp's edge num is in while: "<<lp->GetEdgeNum()<<std::endl;
+//            std::cout<<"lp's edge num is in while: "<<lp->GetEdgeNum()<<std::endl;
             pHalfEdge up_he=mev(n_pos,v,lp);
-            std::cout<<"lp's edge num is in while after mev: "<<lp->GetEdgeNum()<<std::endl;
+//            std::cout<<"lp's edge num is in while after mev: "<<lp->GetEdgeNum()<<std::endl;
             pVertex up_v=up_he->end_v;
             mef(last_up_v,up_v,lp);
-            std::cout<<"lp's edge num is in while after mef: "<<lp->GetEdgeNum()<<std::endl;
+//            std::cout<<"lp's edge num is in while after mef: "<<lp->GetEdgeNum()<<std::endl;
             last_up_v=up_v;
             he=he->next_he;
             v=he->start_v;
         }
         mef(last_up_v,first_up_he->end_v,lp);
-        std::cout<<"lp's edge num is in  after mef: "<<lp->GetEdgeNum()<<std::endl;
-        std::cout<<"face num is: "<<solid->GetFaceNum()<<std::endl;
-        std::cout<<"edge num is: "<<solid->GetEdgeNum()<<std::endl;
+//        std::cout<<"lp's edge num is in  after mef: "<<lp->GetEdgeNum()<<std::endl;
+//        std::cout<<"face num is: "<<solid->GetFaceNum()<<std::endl;
+//        std::cout<<"edge num is: "<<solid->GetEdgeNum()<<std::endl;
         lp=lp->next_l;
     }while(lp!=face->f_loop);
 

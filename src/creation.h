@@ -8,13 +8,11 @@
 
 class Creation {
 public:
-    Creation()=default;
+    Creation()=delete;
     static pSolid CreateSolid();
     static pSolid CreateSolidZero();
     static pSolid CreateSolidEight();
     static pSolid CreateSolidZeroUseSweep();
-    static pSolid CreateSolidCubeWithFourHoleUseSweep();
-    static pSolid CreateSolidWithTwoCrossHole();
     static pSolid CreateCompactSolid();
 };
 

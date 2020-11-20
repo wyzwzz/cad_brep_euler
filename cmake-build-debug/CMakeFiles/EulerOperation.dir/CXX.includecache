@@ -6,3 +6,25 @@
 
 #IncludeRegexTransform: 
 
+/home/wyz/learn/EulerOperation/src/camera.h
+glm/glm.hpp
+-
+glm/gtc/matrix_transform.hpp
+-
+vector
+-
+
+/home/wyz/learn/EulerOperation/src/controller.cpp
+glad/glad.h
+-
+controller.h
+/home/wyz/learn/EulerOperation/src/controller.h
+iostream
+-
+
+/home/wyz/learn/EulerOperation/src/controller.h
+GLFW/glfw3.h
+-
+camera.h
+/home/wyz/learn/EulerOperation/src/camera.h
+
