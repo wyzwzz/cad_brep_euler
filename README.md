@@ -1,9 +1,9 @@
 # cad_brep_euler
-##brep and euler operation
+## brep and euler operation
 
 **CAD三维建模期末Project**
 
-***王银沼 22021071***
+**王银沼 22021071**
 
 使用cmake进行环境配置
 
